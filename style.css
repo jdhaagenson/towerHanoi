@@ -13,7 +13,7 @@
 	/* position: static; */
 	position: relative;
 	top: 100px;
-	width: 50px;
+	width: 30px;
 	transition: .5s ease-in-out;
 }
 .towers {
@@ -32,9 +32,9 @@
 
 #xlarge {
 	position: relative;
-	left: 100px;
-	height: 100px;
-	width: 450px;
+	/* left: 100px; */
+	height: 60px;
+	width: 300px;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	border-top-right-radius: 20px;
@@ -45,9 +45,9 @@
 
 #large {
 	position: relative;
-	left: 150px;
-	height: 100px;
-	width: 350px;
+	/* left: 150px; */
+	height: 60px;
+	width: 250px;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	border-top-right-radius: 20px;
@@ -58,9 +58,9 @@
 
 #medium {
 	position: relative;
-	left: 200px;
-	height: 100px;
-	width: 250px;
+	/* left: 200px; */
+	height: 60px;
+	width: 200px;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	border-top-right-radius: 20px;
@@ -71,14 +71,15 @@
 
 #small {
 	position: relative;
-	left: 250px;
-	height: 100px;
+	/* left: 250px; */
+	height: 60px;
 	width: 150px;
-	border-top-left-radius: 20px;
+	/* border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	border-top-right-radius: 20px;
-	border-bottom-right-radius: 20px;
+	border-bottom-right-radius: 20px; */
 	background: yellow;
+	border-radius: 20px;
 	z-index: 1;
 }
 
@@ -86,12 +87,11 @@
 	/* disks are still WIP, they detatch from tower when browser window is not maximized*/
 	position: relative;
 	left: -0px;
-	top: -300px;
+	/* top: -300px; */
 	display: flex;
 	flex-direction: column-reverse;
 	flex-flow: column-reverse nowrap;
-	align-items: flex-start;
-	justify-content: space-evenly;
+	justify-content: space-around;
 }
 
 .disk:nth-child(1):hover {

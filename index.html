@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Towers of Hanoi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,15 +12,21 @@
         <h1>Tower of Hanoi</h1>
         <button id="playbutton">Play</button>
         <div class="towers">
-            <div class="tower" id="start"><p class="label">Start</p></div>
-            <div class="tower" id="offset"><p class="label">Offset</p></div>
-            <div class="tower" id="end"><p class="label">End</p></div>
-        </div>
-        <div onmouseover="disksCounterOn()" class="disks">
-            <div class="disk" id="xlarge"></div>
-            <div class="disk" id="large"></div>
-            <div class="disk" id="medium"></div>
-            <div class="disk" id="small"></div>
+            <div class="tower" id="start">
+                <p class="label">Start</p>
+                <div class="disk disks" id="xlarge" data-width=400></div>
+                <div class="disk disks" id="large"></div>
+                <div class="disk disks" id="medium"></div>
+                <div class="disk disks" id="small"></div>
+            </div>
+            <div class="tower" id="offset">
+                <p class="label">Offset</p>
+            </div>
+            <div class="tower" id="end">
+                <p class="label">End</p>
+            </div>
+        <!-- </div> -->
+        <!-- <div onmouseover="disksCounterOn()" class="disks"> -->
             <div id="disksCount"></div>
         </div>
     </div>
