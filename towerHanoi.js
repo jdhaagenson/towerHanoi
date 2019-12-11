@@ -75,34 +75,8 @@ towerRight.addEventListener('mouseover', function(event) {
 	}
 });
 
-// function disksCounterOn() {
-// 	//Displays total disk on tower
-// 	let disksCountText = document.querySelector('#disksCount');
-// 	let count = disks.childElementCount;
-// 	if (count == disks.childElementCount) {
-// 		disksCountText.innerHTML = count - 1 + ': ' + 'Disks';
-// 	}
-// 	return count
-// }
 
-// function topDisk() {
-// 	//CURRENTLY WORKING ON
-// 	let topDisk = disks.lastElementChild;
-// 	if (topDisk == disks.lastElementChild) {
-// 		disks.innerHTML = topDisk;
-// 	}
-// 	return topDisk
-// }
-
-// disk 3=smallest disk 4 = largest
 let selected = null
-
-let d1 = document.querySelector('#small')
-let d2 = document.querySelector('#medium')
-let d3 = document.querySelector('#large')
-let d4 = document.querySelector('#xlarge')
-
-
 
 towerLeft.addEventListener('click', function(event) {
 	console.dir(event.currentTarget)
@@ -132,24 +106,24 @@ towerMiddle.addEventListener('click', function(event) {
 	} else {
 		console.log("Calling moveTopDisk")
 		console.log(selected)
-		console.log(event.target.id)
-		return moveTopDisk(selected, event.target.id)
+		console.log(event.currentTarget.id)
+		return moveTopDisk(selected, event.currentTarget.id)
 	}
 })
 
 towerRight.addEventListener('click', function(event) {
-	console.dir(event.target)
+	console.dir(event.currentTarget)
 	if (selected == null) {
-		console.log(event.target.id + "is selected")
-		return selected = event.target.id
-	} else if (selected == event.target.id) {
+		console.log(event.currentTarget.id + "is selected")
+		return selected = event.currentTarget.id
+	} else if (selected == event.currentTarget.id) {
 		console.log("Already selected. Do nothing.")
 		return
 	} else {
 		console.log("Calling moveTopDisk")
 		console.log(selected)
-		console.log(event.target.id)
-		return moveTopDisk(selected, event.target.id)
+		console.log(event.currentTarget.id)
+		return moveTopDisk(selected, event.currentTarget.id)
 	}
 })
 
@@ -177,5 +151,9 @@ const moveTopDisk = (fromID, toID) => {
 	}
 	selected = null
 	return checkForWin()
+}
+
+function reset() {
+	location.reload();
 }
 
