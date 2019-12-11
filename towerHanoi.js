@@ -105,28 +105,28 @@ let d4 = document.querySelector('#xlarge')
 
 
 towerLeft.addEventListener('click', function(event) {
-	console.dir(event.target)
+	console.dir(event.currentTarget)
 	if (selected == null) {
-		console.log(event.target.id + "is selected")
-		selected = event.target.id
+		console.log(event.currentTarget.id + "is selected")
+		selected = event.currentTarget.id
 		return selected
-	} else if (selected == event.target.id) {
+	} else if (selected == event.currentTarget.id) {
 		console.log("Already selected. Do nothing.")
 		return
 	} else {
 		console.log("Calling moveTopDisk")
 		console.log(selected)
-		console.log(event.target.id)
-		return moveTopDisk(selected, event.target.id)
+		console.log(event.currentTarget.id)
+		return moveTopDisk(selected, event.currentTarget.id)
 	}
 })
 
 towerMiddle.addEventListener('click', function(event) {
-	console.dir(event.target)
+	console.dir(event.currentTarget)
 	if (selected == null) {
-		console.log(event.target.id + "is selected")
-		let selected = event.target.id
-	} else if (selected == event.target.id) {
+		console.log(event.currentTarget.id + "is selected")
+		selected = event.currentTarget.id
+	} else if (selected == event.currentTarget.id) {
 		console.log("Already selected. Do nothing.")
 		return
 	} else {
@@ -156,11 +156,10 @@ towerRight.addEventListener('click', function(event) {
 const checkForWin = () => {
 	let condition = ""
 	if (towerRight.childElementCount==5) {
-		condition = "win"
+		return alert("You Win!")
 	} else {
-		condition="lost"
+		return
 	}
-	return condition
 }
 const moveTopDisk = (fromID, toID) => {
 	let towerFrom = document.getElementById(fromID)
@@ -177,6 +176,6 @@ const moveTopDisk = (fromID, toID) => {
 		alert("Illegal move! Disks cannot be placed on top of a smaller disk")
 	}
 	selected = null
-	// return towerTo
+	return checkForWin()
 }
 
