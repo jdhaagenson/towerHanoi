@@ -10,14 +10,14 @@
 <body>
     <div id="gameboard">
         <h1>Tower of Hanoi</h1>
-        <button id="playbutton">Play</button>
+        <button id="playbutton" onclick="">Play</button>
         <div class="towers">
             <div class="tower" id="start">
                 <p class="label">Start</p>
-                <div class="disk disks" id="xlarge" data-width=400></div>
-                <div class="disk disks" id="large"></div>
-                <div class="disk disks" id="medium"></div>
-                <div class="disk disks" id="small"></div>
+                <div class="disk disks" id="xlarge" data-width="300"></div>
+                <div class="disk disks" id="large" data-width="250"></div>
+                <div class="disk disks" id="medium" data-width="200"></div>
+                <div class="disk disks" id="small" data-width="150"></div>
             </div>
             <div class="tower" id="offset">
                 <p class="label">Offset</p>
@@ -31,5 +31,6 @@
         </div>
     </div>
     <script src="towerHanoi.js"></script>
+    <script src="tower.js"></script>
 </body>
 </html>

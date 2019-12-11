@@ -74,17 +74,12 @@
 	/* left: 250px; */
 	height: 60px;
 	width: 150px;
-	/* border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
-	border-top-right-radius: 20px;
-	border-bottom-right-radius: 20px; */
 	background: yellow;
 	border-radius: 20px;
 	z-index: 1;
 }
 
 .disks {
-	/* disks are still WIP, they detatch from tower when browser window is not maximized*/
 	position: relative;
 	left: -0px;
 	/* top: -300px; */

@@ -2,7 +2,8 @@ let towerLeft = document.querySelector('#start');
 let towerMiddle = document.querySelector('#offset');
 let towerRight = document.querySelector('#end');
 let disks = document.querySelector('.disks');
-let disksCount = document.querySelector('#disksCount');
+
+// let disksCount = document.querySelector('#disksCount');
 
 towerLeft.addEventListener('mouseover', function(event) {
 	//Highlights towerLeft and unhighlights when user selects other tower and cursor leaves newly selected tower
@@ -74,19 +75,108 @@ towerRight.addEventListener('mouseover', function(event) {
 	}
 });
 
-function disksCounterOn() {
-	//Displays total disk on tower
-	let disksCountText = document.querySelector('#disksCount');
-	let count = disks.childElementCount;
-	if (count == disks.childElementCount) {
-		disksCountText.innerHTML = count - 1 + ': ' + 'Disks';
+// function disksCounterOn() {
+// 	//Displays total disk on tower
+// 	let disksCountText = document.querySelector('#disksCount');
+// 	let count = disks.childElementCount;
+// 	if (count == disks.childElementCount) {
+// 		disksCountText.innerHTML = count - 1 + ': ' + 'Disks';
+// 	}
+// 	return count
+// }
+
+// function topDisk() {
+// 	//CURRENTLY WORKING ON
+// 	let topDisk = disks.lastElementChild;
+// 	if (topDisk == disks.lastElementChild) {
+// 		disks.innerHTML = topDisk;
+// 	}
+// 	return topDisk
+// }
+
+// disk 3=smallest disk 4 = largest
+let selected = null
+
+let d1 = document.querySelector('#small')
+let d2 = document.querySelector('#medium')
+let d3 = document.querySelector('#large')
+let d4 = document.querySelector('#xlarge')
+
+
+
+towerLeft.addEventListener('click', function(event) {
+	console.dir(event.target)
+	if (selected == null) {
+		console.log(event.target.id + "is selected")
+		selected = event.target.id
+		return selected
+	} else if (selected == event.target.id) {
+		console.log("Already selected. Do nothing.")
+		return
+	} else {
+		console.log("Calling moveTopDisk")
+		console.log(selected)
+		console.log(event.target.id)
+		return moveTopDisk(selected, event.target.id)
 	}
+})
+
+towerMiddle.addEventListener('click', function(event) {
+	console.dir(event.target)
+	if (selected == null) {
+		console.log(event.target.id + "is selected")
+		let selected = event.target.id
+	} else if (selected == event.target.id) {
+		console.log("Already selected. Do nothing.")
+		return
+	} else {
+		console.log("Calling moveTopDisk")
+		console.log(selected)
+		console.log(event.target.id)
+		return moveTopDisk(selected, event.target.id)
+	}
+})
+
+towerRight.addEventListener('click', function(event) {
+	console.dir(event.target)
+	if (selected == null) {
+		console.log(event.target.id + "is selected")
+		return selected = event.target.id
+	} else if (selected == event.target.id) {
+		console.log("Already selected. Do nothing.")
+		return
+	} else {
+		console.log("Calling moveTopDisk")
+		console.log(selected)
+		console.log(event.target.id)
+		return moveTopDisk(selected, event.target.id)
+	}
+})
+
+const checkForWin = () => {
+	let condition = ""
+	if (towerRight.childElementCount==5) {
+		condition = "win"
+	} else {
+		condition="lost"
+	}
+	return condition
+}
+const moveTopDisk = (fromID, toID) => {
+	let towerFrom = document.getElementById(fromID)
+	console.log(towerFrom)
+	let towerTo = document.getElementById(toID)
+	console.log(towerTo)
+	let diskToMove = towerFrom.lastElementChild
+	console.log(diskToMove.dataset.width)
+	if (towerTo.childElementCount == 1) {
+		towerTo.appendChild(diskToMove)
+	} else if (diskToMove.dataset.width < towerTo.lastElementChild.dataset.width) {
+		towerTo.appendChild(diskToMove)
+	} else if (diskToMove.dataset.width > towerTo.lastElementChild.dataset.width) {
+		alert("Illegal move! Disks cannot be placed on top of a smaller disk")
+	}
+	selected = null
+	// return towerTo
 }
 
-function topDisk() {
-	//CURRENTLY WORKING ON
-	let topDisk = disks.lastElementChild;
-	if (topDisk == disks.lastElementChild) {
-		disks.innerHTML = topDisk;
-	}
-}
